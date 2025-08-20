@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  mageai:
+    image: mageai/mageai:latest
+    container_name: mageai
+    ports:
+      - "6789:6789"
+    volumes:
+      - ./:/home/src
+    environment:
+      REQUIRE_USER_AUTHENTICATION: "1"
+      DEFAULT_OWNER_EMAIL: "longth8@mbbank.com.vn"
+      DEFAULT_OWNER_PASSWORD: "admin"
+      DEFAULT_OWNER_USERNAME: "longth8"
+    command: /app/run_app.sh mage start demo_project
+    tty: true
+    stdin_open: true
